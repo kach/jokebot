@@ -7,6 +7,7 @@ import select
 import random
 import ssl
 import sys
+import time
 from jokes import jokes
 
 if len(sys.argv) != 5:
@@ -30,6 +31,7 @@ def read_loop(callback):
     data = ""
     CRLF = '\r\n'
     while True:
+        time.sleep(1)
         try:
             readables, writables, exceptionals = select.select([s], [s], [s]) 
             if len(readables) == 1:
